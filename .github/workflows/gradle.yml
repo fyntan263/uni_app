@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-files
-        path: build/lib
+        path: build
 
   dependency-submission:
     runs-on: ubuntu-latest
@@ -70,10 +70,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-files
+      - name: Move artifacts to build directory
+        run: mv build-files/* build/
       - name: Build Docker image
-        run: ls
-#        run: docker build -t uni_app:latest .
-#      - name: Push Docker image
-#        run: docker tag uni_app:latest ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
-#      - name: Pushing
-#        run: docker push ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
+        run: docker build -t uni_app:latest .
+      - name: Push Docker image
+        run: docker tag uni_app:latest ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
+      - name: Pushing
+        run: docker push ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
