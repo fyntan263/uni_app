@@ -71,8 +71,6 @@ jobs:
         with:
           name: build-files
           path: build
-      - name: Move artifacts to build directory
-        run: mv build-files/* build/
       - name: Build Docker image
         run: docker build -t uni_app:latest .
       - name: Push Docker image
