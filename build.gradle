@@ -44,7 +44,9 @@ dependencyManagement {
         mavenBom "org.springframework.modulith:spring-modulith-bom:${springModulithVersion}"
     }
 }
-
+tasks.named('bootJar') {
+    archiveFileName = 'uni_app.jar'
+}
 tasks.named('test') {
     useJUnitPlatform()
 }
