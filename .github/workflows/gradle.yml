@@ -71,8 +71,9 @@ jobs:
         with:
           name: build-files
       - name: Build Docker image
-        run: docker build -t uni_app:latest .
-      - name: Push Docker image
-        run: docker tag uni_app:latest ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
-      - name: Pushing
-        run: docker push ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
+        run: ls
+#        run: docker build -t uni_app:latest .
+#      - name: Push Docker image
+#        run: docker tag uni_app:latest ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
+#      - name: Pushing
+#        run: docker push ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
