@@ -74,6 +74,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Listing
         run: ls
+      - name: Listing2
+        run: ls build/libs
       - name: Build Docker image
         run: docker build -t uni_app:latest .
       - name: Push Docker image
