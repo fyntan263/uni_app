@@ -37,7 +37,11 @@ jobs:
 
     - name: Build with Gradle 8.5
       run: gradle build
-
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-files
+        path: build
   dependency-submission:
 
     runs-on: ubuntu-latest
@@ -76,9 +80,9 @@ jobs:
         run: ls
       - name: Listing2
         run: ls build/libs
-      - name: Build Docker image
-        run: docker build -t uni_app:latest .
-      - name: Push Docker image
-        run: docker tag uni_app:latest ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
-      - name: Pushing
-        run: docker push ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
+#      - name: Build Docker image
+#        run: docker build -t uni_app:latest .
+#      - name: Push Docker image
+#        run: docker tag uni_app:latest ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
+#      - name: Pushing
+#        run: docker push ${{ secrets.DOCKERHUB_USER }}/uni_app:latest
