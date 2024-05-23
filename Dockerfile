@@ -1,3 +1,4 @@
 FROM openjdk:17
-COPY build/libs/uni_app.jar uni_app.jar
+ARG JAR_FILE=build/libs/uni_app.jar
+COPY ${JAR_FILE} uni_app.jar
 ENTRYPOINT ["java", "-jar", "uni_app.jar"]
