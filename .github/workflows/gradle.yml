@@ -70,7 +70,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-files
-        run: ls
       - name: Build Docker image
         run: docker build -t uni_app:latest .
       - name: Push Docker image
