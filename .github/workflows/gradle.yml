@@ -72,7 +72,8 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+      - name: Listing
+        run: ls
       - name: Build Docker image
         run: docker build -t uni_app:latest .
       - name: Push Docker image
