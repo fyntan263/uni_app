@@ -70,6 +70,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-files
+          path: build
       - name: Move artifacts to build directory
         run: mv build-files/* build/
       - name: Build Docker image
