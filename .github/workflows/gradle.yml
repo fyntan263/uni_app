@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test_build:
+  test-build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -55,7 +55,7 @@ jobs:
       uses: gradle/actions/dependency-submission@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
   docker-build-and-push:
-    needs: build
+    needs: test-build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
