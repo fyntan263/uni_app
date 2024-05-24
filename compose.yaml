@@ -13,6 +13,7 @@ services:
 
   app:
     build: .
+    image: uni_app:latest
     container_name: "uni_app"
     ports:
       - "8081:8080"
