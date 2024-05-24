@@ -1,17 +1,17 @@
 services:
+  mongodb:
+    image: 'mongo:latest'
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
   app:
     build: .
     container_name: "uni_app"
     ports:
-      - "8081:8081"
+      - "8081:8080"
     depends_on:
-      - uni_mongodb
+      - mongodb
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/demo
-  uni_mongodb:
-    image: 'mongo:latest'
-    container_name: "uni_mongodb"
-    ports:
-      - 27017:27017
 
 
