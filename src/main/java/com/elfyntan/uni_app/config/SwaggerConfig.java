@@ -13,7 +13,7 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("ERP - HR Module API")
+                        .title("HR Management API")
                         .version("1.0")
                         .description("API documentation for HR Management system"));
     }
